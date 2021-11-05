@@ -6,9 +6,13 @@ public class Basket {
     private String items = "";
     private int totalPrice = 0;
     private int limit;
+    private static int allPrice = 0;
+    private static double allWeight = 0;
 
     public Basket() {
         increaseCount(1);
+        allPrice(totalPrice);                               //
+        allWeight(totalWeight);
         items = "Список товаров:";
         this.limit = 1000000;
     }
@@ -24,17 +28,25 @@ public class Basket {
         this.totalPrice = totalPrice;
     }
 
+
+
+    public static void allPrice(int totalPrice) {            //
+        Basket.allPrice = Basket.allPrice + totalPrice;
+    }
+
+    public static void allWeight(double totalWeight) {            //
+        Basket.allWeight = Basket.allWeight + totalWeight;
+    }
+
     public static void increaseCount(int count) {
         Basket.count = Basket.count + count;
     }
 
-
-
-    public void add(String name, int price) {                               // 2
+    public void add(String name, int price) {
         add(name, price, 1);
     }
 
-    public void add(String name, int price, int count) {                    // 1
+    public void add(String name, int price, int count) {
         boolean error = false;
         if (contains(name)) {
             error = true;
@@ -49,18 +61,28 @@ public class Basket {
             return;
         }
 
-        items = items + "\n" + name + " - " + count + " шт. - " + price + " руб. " ;
+
+        increaseCount(count);
+        items = items + "\n" + name + " - " + count + " шт. - " + price + " руб. ";
         totalPrice = totalPrice + count * price;
+        int i = price * count;
+        allPrice(i);
+        System.out.println("Общая стоимость - " + Basket.allPrice);
     }
 
-
-
-    public void add(String name, int price, int count, double weight){      // 3
-        add(name,price,count);
+    public void add(String name, int price, int count, double weight) {
+        add(name, price, count);
         totalWeight = totalWeight + weight;
+        double i = weight * count;
+        allWeight(i);
         System.out.println("Общий вес - " + totalWeight + " кг.");
+        System.out.println("Общий вес 2 - " + Basket.allWeight + " кг.");
 
     }
+
+
+
+
 
 
 
@@ -86,6 +108,7 @@ public class Basket {
     public static int getCount() {
         return count;
     }
+
     public int getTotalPrice() {
         return totalPrice;
     }

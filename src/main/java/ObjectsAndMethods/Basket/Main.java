@@ -1,5 +1,7 @@
 package ObjectsAndMethods.Basket;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,8 +14,12 @@ public class Main {
 
         basket.add("Meet",60,1,3);
         basket.print("Meet");
+
+        System.out.println();
         basket.add("Solt",50,1,0.5);
         basket.print("Solt");
+
+
 
 
 
