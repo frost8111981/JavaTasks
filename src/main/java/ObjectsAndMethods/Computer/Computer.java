@@ -22,9 +22,9 @@ public final class Computer {
 
     }
 
-    public double totalWeight(double totalWeight){
-      totalWeight = processor.getWeight() + ram.getWeight() + rom.getWeight() + screen.getWeight() + keyboard.getWeight();
-      return totalWeight;
+    public double totalWeight(){
+      this.totalWeight = processor.getWeight() + ram.getWeight() + rom.getWeight() + screen.getWeight() + keyboard.getWeight();
+      return this.totalWeight;
     }
 
 
@@ -37,7 +37,7 @@ public final class Computer {
                 "Физическая память: " + rom + " \n " +
                 "Монитор: " + screen + " \n " +
                 "Клавиатура: " + keyboard + " \n " +
-                "Общий вес комплектующих - " + totalWeight(totalWeight);
+                "Общий вес комплектующих - " + totalWeight();
 
     }
 

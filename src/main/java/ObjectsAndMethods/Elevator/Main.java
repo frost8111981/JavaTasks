@@ -8,12 +8,13 @@ public class Main {
         Раскомментировать после "заполнения" класса Elevator
          */
 
-        Elevator elevator = new Elevator(-3, 26);
+        Elevator elevator = new Elevator(1, 10);
 
         while(true) {
             System.out.print("Введите номер этажа: ");
-            int floor = new Scanner(System.in).nextInt();
-            elevator.move(floor);
+            System.out.println("Текущий этаж: " + elevator.getCurrentFloor());
+            int pushFloor = new Scanner(System.in).nextInt();
+            elevator.move(pushFloor);
         }
     }
 }

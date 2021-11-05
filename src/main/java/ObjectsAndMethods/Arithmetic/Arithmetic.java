@@ -10,12 +10,11 @@ public class Arithmetic {
    }
 
    public void summ(){
-       int c = a + b;
-       System.out.println("Сумма = " + c);
+       System.out.println("Сумма = " + a + b);
    }
 
    public int raznost(){
-       int c = a * b;
+       int c = a - b;
        System.out.println("Разность = " + c);
        return c;
    }

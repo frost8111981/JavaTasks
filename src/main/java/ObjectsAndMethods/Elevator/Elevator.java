@@ -5,40 +5,59 @@ public class Elevator {
     private int minFloor;
     private int maxFloor;
 
-public Elevator(int minFloor, int maxFloor){
-    this.minFloor = minFloor;
-    this.maxFloor = maxFloor;
-}
+    public Elevator(int minFloor, int maxFloor) {
+        this.minFloor = minFloor;
+        this.maxFloor = maxFloor;
+    }
 
-    public int getCurrentFloor(){
+    public void moveDown() {
+        System.out.println(currentFloor = currentFloor - 1);
+    }
+
+    public void moveUp() {
+        System.out.println(currentFloor = currentFloor + 1);
+    }
+
+    public void move(int pushFloor) {
+        int tempFloor = 0;
+        if (pushFloor > currentFloor & pushFloor < maxFloor) {
+            tempFloor = pushFloor - currentFloor;
+            for (int i = 0; i < tempFloor; i++) {
+                moveUp();
+            }
+        } else if (pushFloor < currentFloor & pushFloor >= minFloor) {
+            tempFloor = currentFloor - pushFloor;
+            for (int i = 0; i < tempFloor; i++) {
+                moveDown();
+            }
+        } else {
+            System.out.println("Не верно введен этаж ");
+        }
+
+    }
+
+    public int getCurrentFloor() {
         return currentFloor;
     }
-
-    public void moveDown(){
-    currentFloor = currentFloor -  1;
-    }
-
-    public void moveUp(){
-        currentFloor = currentFloor + 1;
-    }
-    public void move(int floor){
-    if(floor <= maxFloor & floor >= minFloor){
-        int tempFloor = 0;
-        if(currentFloor < floor){
-            tempFloor = floor - currentFloor;
-            for(int i = 0; i < tempFloor; i ++){
-                moveUp();
-                System.out.println(currentFloor);
-            }
-        }else{
-            tempFloor = currentFloor - floor;
-            for(int i = 0; i < tempFloor; i ++){
-                moveDown();
-                System.out.println(currentFloor);
-            }
-        }
-    }else{
-        System.out.println("error");
-    }
-    }
 }
+
+
+//    public void move(int pushFloor) {
+//        if (pushFloor <= maxFloor & pushFloor >= minFloor) {
+//            int tempFloor = 0;
+//            if (currentFloor < pushFloor) {
+//                for (int i = 0; i < pushFloor - currentFloor; i ++) {
+//                    moveUp();
+//                    System.out.println(currentFloor);
+//                }
+//            } else {
+//                tempFloor = currentFloor - pushFloor;
+//                for (int i = 0; i < tempFloor; i++) {
+//                    moveDown();
+//                    System.out.println(currentFloor);
+//                }
+//            }
+//        } else {
+//            System.out.println("error");
+//        }
+//    }

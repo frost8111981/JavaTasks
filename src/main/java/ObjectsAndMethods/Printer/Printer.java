@@ -11,9 +11,11 @@ public class Printer {
     private  int pageCount;
     private int allTimePages;
 
+
+
     public Printer() {
         increaseCount(1);
-        queue = "Очередь документов";
+        queue = "Очередь документов: " + "\n";
     }
 
     private void increaseCount(int i) {
@@ -24,12 +26,12 @@ public class Printer {
 
         this.pageCount = this.pageCount + pages;
         this.allTimePages = this.allTimePages + pages;
-        queue = queue + "\n" + pages + " стр " ;
+        queue =   queue + pages + " стр " + "\n";
     }
 
     public void append(String name, String text) {              // 2
         append(text);
-        queue = queue + "\n" + name;
+        queue = queue + name;
 
     }
 
@@ -47,15 +49,15 @@ public class Printer {
 
     public void clear(){
         this.pageCount = 0;
-        this.queue = "Очередь печати";
+        this.queue = "Очередь печати пустая";
     }
     public int getPendingPagesCount(){
         return this.pageCount;
     }
 
-    public int getAllTimePages(){
-        return this.allTimePages;
-    }
+//    public int getAllTimePages(){
+//        return this.allTimePages;
+//    }
 
 
 }
